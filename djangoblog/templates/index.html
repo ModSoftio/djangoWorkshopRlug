@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Our Blog</title>
+    {% load staticfiles %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>
+        Home Page
+    </h1>
+    <div class="post-container">
+        {% for post in posts%}
+            <div class="post">
+                <h4>{{ post.title }}</h4>
+                <p>{{ post.body }}</p>
+                <h6>posted at : {{ post.created }}</h6>
+            </div>
+        {%endfor%}
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+install apache and mod_wsgi: sudo apt-get install python-pip apache2 libapache2-mod-wsgi
+
+Apache conf file :
+
+    WSGIScriptAlias / /var/www/djangoblog/djangoblog/wsgi.py
+    Alias /static/ /var/www/djangoblog/static/
+    ServerAdmin hussam@modsoft.io
+    DocumentRoot /var/www/djangoblog
+    <Directory /var/www/djangoblog/djangoblog>
+            <Files wsgi.py>
+                    Require all granted
+            </Files>
+            Order allow,deny
+            Allow from all
+    </Directory>
+
+    <Directory /var/www/djangoblog/static/>
+            Require all granted
+    </Directory>
